@@ -28,10 +28,10 @@ namespace ScanAllCSS
         private void btn_QuickScan1_Click(object sender, EventArgs e)
         {
             this.Text = "Start!";
-            if (txb_QuickScan1.Text == "" || !isCSSFile(txb_QuickScan1.Text))
-            {
-                return;
-            }
+            //if (txb_QuickScan1.Text == "" || !isCSSFile(txb_QuickScan1.Text))
+            //{
+            //    return;
+            //}
             string[] temp = txb_TargerQuick1.Text.Split('@');
 
             if (temp.Length == 1)
@@ -57,10 +57,10 @@ namespace ScanAllCSS
         private void btn_DeepScan1_Click(object sender, EventArgs e)
         {
             this.Text = "Start!";
-            if (txb_DeepScan1.Text == "" || !isCSSFile(txb_DeepScan1.Text))
-            {
-                return;
-            }
+            //if (txb_DeepScan1.Text == "" || !isCSSFile(txb_DeepScan1.Text))
+            //{
+            //    return;
+            //}
            
             string[] temp = txb_targerDeep1.Text.Split('@');
 
@@ -377,7 +377,15 @@ namespace ScanAllCSS
                             }
                             else
                             {
-                                saveBody += s[i];
+                                if(s[i] == ';')
+                                {
+                                    saveBody += s[i];
+                                    saveBody += Environment.NewLine;
+                                }
+                                else
+                                {
+                                    saveBody += s[i];
+                                }
                             }
                         }
                     }
@@ -451,7 +459,15 @@ namespace ScanAllCSS
                             }
                             else
                             {
-                                saveBody += s[i];
+                                if (s[i] == ';')
+                                {
+                                    saveBody += s[i];
+                                    saveBody += Environment.NewLine;
+                                }
+                                else
+                                {
+                                    saveBody += s[i];
+                                }
                             }
                         }
                     }
@@ -580,7 +596,7 @@ namespace ScanAllCSS
         {
             panel2.Controls.Clear();
             Resulfs.resulfs.Clear();
-            Resulfs.resulfs.Clear();
+            Resulfs.key.Clear();
         }
         
 
