@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ScanAllCSS
 {
@@ -22,6 +23,38 @@ namespace ScanAllCSS
         {
             Form2 f = new Form2(txb_view.Text);
             f.Show();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txb_view.Text);
+        }
+
+        private void exportCssFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog f = new SaveFileDialog();
+            f.DefaultExt = "css";
+            f.Filter = "(Các file excel)|*.css";
+            f.AddExtension = true;
+            f.RestoreDirectory = true;
+            if (f.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(f.FileName))
+                    {
+                        sw.Write(txb_view.Text);
+                    }
+                }
+                catch
+                {
+
+                }
+            }
         }
     }
 }

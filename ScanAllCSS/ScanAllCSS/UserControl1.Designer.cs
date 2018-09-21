@@ -30,9 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txb_view = new System.Windows.Forms.TextBox();
-            this.cb_view = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cb_view = new System.Windows.Forms.ComboBox();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportCssFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +52,22 @@
             this.txb_view.Size = new System.Drawing.Size(316, 287);
             this.txb_view.TabIndex = 0;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.exportCssFileToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem.Text = "View";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            // 
             // cb_view
             // 
             this.cb_view.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -62,19 +80,19 @@
             this.cb_view.Size = new System.Drawing.Size(197, 32);
             this.cb_view.TabIndex = 1;
             // 
-            // contextMenuStrip1
+            // copyToolStripMenuItem
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(100, 26);
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
-            // viewToolStripMenuItem
+            // exportCssFileToolStripMenuItem
             // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
-            this.viewToolStripMenuItem.Text = "View";
-            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            this.exportCssFileToolStripMenuItem.Name = "exportCssFileToolStripMenuItem";
+            this.exportCssFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportCssFileToolStripMenuItem.Text = "Export css file";
+            this.exportCssFileToolStripMenuItem.Click += new System.EventHandler(this.exportCssFileToolStripMenuItem_Click);
             // 
             // UserControl1
             // 
@@ -95,5 +113,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         public System.Windows.Forms.TextBox txb_view;
         public System.Windows.Forms.ComboBox cb_view;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportCssFileToolStripMenuItem;
     }
 }

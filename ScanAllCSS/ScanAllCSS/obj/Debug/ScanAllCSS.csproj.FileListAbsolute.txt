@@ -22,3 +22,15 @@ C:\Users\nguye\Desktop\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.csproj.Generat
 C:\Users\nguye\Desktop\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.csproj.CoreCompileInputs.cache
 C:\Users\nguye\Desktop\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.exe
 C:\Users\nguye\Desktop\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.pdb
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\bin\Debug\ScanAllCSS.exe.config
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\bin\Debug\ScanAllCSS.exe
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\bin\Debug\ScanAllCSS.pdb
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.csprojAssemblyReference.cache
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.Resulfs.resources
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.Form2.resources
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.Properties.Resources.resources
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.UserControl1.resources
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.csproj.GenerateResource.cache
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.csproj.CoreCompileInputs.cache
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.exe
+D:\New folder (2)\scan\ScanAllCSS\ScanAllCSS\obj\Debug\ScanAllCSS.pdb

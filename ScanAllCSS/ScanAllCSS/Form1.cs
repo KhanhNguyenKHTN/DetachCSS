@@ -52,6 +52,8 @@ namespace ScanAllCSS
                 item.cb_view.Items.AddRange(Resulfs.resulfs.ToArray());
             }
             this.Text = "Load done!";
+            UserControl1 us = generateUs(new Point((0 * (panel2.Width / 1)), 0), panel2.Width / 1, panel2.Height);
+            panel2.Controls.Add(us);
         }
 
         private void btn_DeepScan1_Click(object sender, EventArgs e)
@@ -82,13 +84,19 @@ namespace ScanAllCSS
                 item.cb_view.Items.AddRange(Resulfs.resulfs.ToArray());
             }
             this.Text = "Load done!";
+            UserControl1 us = generateUs(new Point((0 * (panel2.Width / 1)), 0), panel2.Width / 1, panel2.Height);
+            panel2.Controls.Add(us);
         }
         private void btn_DeepScan2_Click(object sender, EventArgs e)
         {
             this.Text = "Start!";
             string[] fileNames = txb_QuickScan2.Text.Split('@');
             List<string> fs = fileNames.ToList();
-            fs.RemoveAt(0);
+
+            if (fs[0] == "")
+            {
+                fs.RemoveAt(0);
+            }
 
             string[] temp = txb_targetQuick2.Text.Split('@');
 
@@ -116,6 +124,8 @@ namespace ScanAllCSS
                 item.cb_view.Items.AddRange(Resulfs.resulfs.ToArray());
             }
             this.Text = "Load done!";
+            UserControl1 us = generateUs(new Point((0 * (panel2.Width / 1)), 0), panel2.Width / 1, panel2.Height);
+            panel2.Controls.Add(us);
         }
 
         private void btn_DeepScan3_Click(object sender, EventArgs e)
@@ -123,7 +133,11 @@ namespace ScanAllCSS
             this.Text = "Start!";
             string[] fileNames = txb_DeepScan2.Text.Split('@');
             List<string> fs = fileNames.ToList();
-            fs.RemoveAt(0);
+
+            if (fs[0] == "")
+            {
+                fs.RemoveAt(0);
+            }
 
             string[] temp = txb_targerDeep2.Text.Split('@');
 
@@ -151,6 +165,8 @@ namespace ScanAllCSS
                 item.cb_view.Items.AddRange(Resulfs.resulfs.ToArray());
             }
             this.Text = "Load done!";
+            UserControl1 us = generateUs(new Point((0 * (panel2.Width / 1)), 0), panel2.Width / 1, panel2.Height);
+            panel2.Controls.Add(us);
         }
 
         //MEthod
@@ -327,7 +343,7 @@ namespace ScanAllCSS
             string res = "";
             try
             {
-                string saveBody = "";
+                string saveBody = "\t";
                 string saveHeader = "";
                 bool isCopyHeader = true; //1 pending copy header -- 0 pending copy body
                 bool isSkip = false;
@@ -369,9 +385,9 @@ namespace ScanAllCSS
                         {
                             if (s[i] == '}')
                             {
-                                res += saveHeader + "{" + Environment.NewLine + saveBody + Environment.NewLine + "}" + Environment.NewLine;
+                                res += saveHeader + "{" + Environment.NewLine + saveBody + ";" + Environment.NewLine + "}" + Environment.NewLine;
                                 saveHeader = "";
-                                saveBody = "";
+                                saveBody = "\t";
                                 isCopyHeader = true;
                                 isSkip = false;
                             }
@@ -380,7 +396,7 @@ namespace ScanAllCSS
                                 if(s[i] == ';')
                                 {
                                     saveBody += s[i];
-                                    saveBody += Environment.NewLine;
+                                    saveBody += Environment.NewLine + "\t";
                                 }
                                 else
                                 {
@@ -409,7 +425,7 @@ namespace ScanAllCSS
             string res = "";
             try
             {
-                string saveBody = "";
+                string saveBody = "\t";
                 string saveHeader = "";
                 bool isCopyHeader = true; //1 pending copy header -- 0 pending copy body
                 bool isSkip = false;
@@ -451,9 +467,9 @@ namespace ScanAllCSS
                         {
                             if (s[i] == '}')
                             {
-                                res += saveHeader + "{" + Environment.NewLine + saveBody + Environment.NewLine + "}" + Environment.NewLine;
+                                res += saveHeader + "{" + Environment.NewLine + saveBody + ";" + Environment.NewLine + "}" + Environment.NewLine;
                                 saveHeader = "";
-                                saveBody = "";
+                                saveBody = "\t";
                                 isCopyHeader = true;
                                 isSkip = false;
                             }
@@ -462,7 +478,7 @@ namespace ScanAllCSS
                                 if (s[i] == ';')
                                 {
                                     saveBody += s[i];
-                                    saveBody += Environment.NewLine;
+                                    saveBody += Environment.NewLine + "\t";
                                 }
                                 else
                                 {
@@ -548,16 +564,32 @@ namespace ScanAllCSS
 
         private void btn_Browser3_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog f = new FolderBrowserDialog();
+            FolderBrowserDialog f1 = new FolderBrowserDialog();
 
-            if (f.ShowDialog() != DialogResult.OK)
+            if (f1.ShowDialog() != DialogResult.OK)
             {
-                return;
+                OpenFileDialog f = new OpenFileDialog();
+                f.DefaultExt = "css";
+                f.Filter = "(Các file excel)|*.css";
+                f.AddExtension = true;
+                f.Multiselect = true;
+                f.RestoreDirectory = true;
+                if (f.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                else
+                {
+                    foreach (string item in f.FileNames)
+                    {
+                        txb_DeepScan1.AppendText("@" + item);
+                    }
+                }
             }
             else
             {
 
-                DirectoryInfo cssFile = new DirectoryInfo(f.SelectedPath);
+                DirectoryInfo cssFile = new DirectoryInfo(f1.SelectedPath);
                 txb_QuickScan2.Text = DeepScan(cssFile);
             }
         }
@@ -578,16 +610,31 @@ namespace ScanAllCSS
 
         private void btn_Browser4_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog f = new FolderBrowserDialog();
+            FolderBrowserDialog f1 = new FolderBrowserDialog();
 
-            if (f.ShowDialog() != DialogResult.OK)
+            if (f1.ShowDialog() != DialogResult.OK)
             {
-                return;
+                OpenFileDialog f = new OpenFileDialog();
+                f.DefaultExt = "css";
+                f.Filter = "(Các file excel)|*.css";
+                f.AddExtension = true;
+                f.Multiselect = true;
+                f.RestoreDirectory = true;
+                if (f.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                else
+                {
+                    foreach(string item in f.FileNames)
+                    {
+                        txb_DeepScan1.AppendText("@" + item);
+                    }
+                }
             }
             else
             {
-
-                DirectoryInfo cssFile = new DirectoryInfo(f.SelectedPath);
+                DirectoryInfo cssFile = new DirectoryInfo(f1.SelectedPath);
                 txb_DeepScan2.Text = DeepScan(cssFile);
             }
         }
